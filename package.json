@@ -1,0 +1,17 @@
+{
+  "name": "sopbot-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "node-fetch": "^3.3.2",
+    "xhr2": "^0.2.1"
+  }
+}
