@@ -1,0 +1,2 @@
+npm i jquery-csv
+npm i discord.js

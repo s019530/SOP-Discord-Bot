@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "csv": "^6.3.5",
     "discord.js": "^14.14.1",
+    "jquery-csv": "^1.0.21",
     "node-fetch": "^3.3.2",
     "xhr2": "^0.2.1"
   }
