@@ -1,7 +1,7 @@
 const fs = require('fs');
 const csv = require('jquery-csv');
 const { stringify } = require("csv-stringify");
-
+const idc = require("./sort");
 
 function addToCSV(content)
 {
@@ -50,6 +50,8 @@ function addToLeaderboard(content)
 
     console.log(content);
 
+    content = idc.SortByWinRate(content);
+
     for(let i = 0; i != content.length; i++)
     {
         if(content[i].length > 1){
@@ -73,22 +75,24 @@ function reportToLeaderboard(WinnerUSER, WinnerID, LoserUSER, LoserID)
     {
         if(text[i][1] == WinnerID){
             text[i][2] = parseInt(text[i][2]) + 1;
+            text[i][4] = parseFloat(text[i][2]) / (parseFloat(text[i][2]) + parseFloat(text[i][3]));
             winnerupdated = true;
         }
         else if(text[i][1] == LoserID)
         {
             text[i][3] = parseInt(text[i][3]) + 1;
+            text[i][4] = parseFloat(text[i][2]) / (parseFloat(text[i][2]) + parseFloat(text[i][3]));
             loserupdated = true;
         }
     }
 
     if(winnerupdated == false)
     {
-        text.push([WinnerUSER, WinnerID, 1, 0]);
+        text.push([WinnerUSER, WinnerID, 1, 0, 100.0]);
     }
     if(loserupdated == false)
     {
-        text.push([LoserUSER, LoserID, 0, 1])
+        text.push([LoserUSER, LoserID, 0, 1, 0.0])
     }
 
     addToLeaderboard(text);

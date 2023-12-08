@@ -44,8 +44,5 @@ async function theEmbed(interaction, text)
         }
     }
 
-
-
-    //interaction.channel.send({embeds: [embed]});
     await interaction.reply({embeds: [embed]});
 }
